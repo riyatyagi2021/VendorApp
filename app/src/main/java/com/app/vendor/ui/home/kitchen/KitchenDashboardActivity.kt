@@ -1,10 +1,14 @@
 package com.app.vendor.ui.home.kitchen
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import com.app.vendor.R
 import com.app.vendor.base.BaseActivity
 import com.app.vendor.model.food.Food
@@ -14,7 +18,7 @@ import com.mobcoder.kitchen.callback.RootCallback
 import com.mobcoder.kitchen.viewModel.AuthViewModel
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
-class KitchenDashboardActivity:BaseActivity() {
+class KitchenDashboardActivity:BaseActivity(), RootCallback<Any> {
 
     private var foodAdapter: FoodAdapter? = null
     private val viewModel: AuthViewModel by viewModels()
@@ -29,27 +33,53 @@ class KitchenDashboardActivity:BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setAdapter()
         setObservables()
+        setNav()
+        setListener()
 
         if (AppUtil.isConnection()) {
             showProgressBar()
             viewModel.getFoodUser(vendorId)
         }
 
+        btnAdd.setOnClickListener{
+            val intent=Intent(this,FoodActivity::class.java)
+            startActivity(intent)
+          //  launchActivity(AddFoodItems::class.java)
+        }
+
     }
+
+
+    private fun setListener() {
+        ivMenu.setOnClickListener {
+            drawer.openDrawer(GravityCompat.START)
+        }
+
+    }
+
+    private fun setNav() {
+        val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
+        drawer.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
+
+
+    }
+
 
     private fun setAdapter() {
         foodAdapter = FoodAdapter()
         rv1.setHasFixedSize(true) //every item of the RecyclerView has a fix size
         rv1.adapter = foodAdapter
-       foodAdapter?.setRootCallback(this as RootCallback<Any>)
+    foodAdapter?.setRootCallback(this as RootCallback<Any>)
     }
 
     private fun setObservables() {
 
         viewModel.foodUserSuccess.observe(this) { data ->
-           // hideProgressBar()
+            hideProgressBar()
             //  swpKt.isRefreshing = false
             foods = data.foodItemList
 
@@ -61,8 +91,10 @@ class KitchenDashboardActivity:BaseActivity() {
             }
             tvItemCountKt.gone()
             linearCartKt.gone()
+            */
+
             foodAdapter?.setData(foods)
-        }*/
+        }
 
              viewModel.error.observe(this) { errors ->
            // swpKt.isRefreshing = false
@@ -90,4 +122,3 @@ class KitchenDashboardActivity:BaseActivity() {
             }
         }
     }*/
-}

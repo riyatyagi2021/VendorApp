@@ -37,5 +37,7 @@
 
     <color name="color_E1D0CB">#E1D0CB</color>
     <color name="color_FCFCFD">#FCFCFD</color>
+    <color name="babywhite">#fafafa</color>
+    <color name="chinesred">#aa381e</color>
 
 </resources>

@@ -45,7 +45,7 @@ class LoginActivity : BaseActivity() {
             PreferenceKeeper.getInstance().accessToken = useData?.accessToken
             PreferenceKeeper.getInstance().setUser(useData)
             launchActivity(KitchenDashboardActivity::class.java)
-           finish()
+
         }
 
         viewModel.error.observe(this) { errors ->
