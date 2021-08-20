@@ -1,12 +1,10 @@
 package com.app.vendor.api
 
 import com.app.vendor.model.base.BaseResponse
+import com.app.vendor.model.food.FoodResponse
 import com.mobcoder.kitchen.model.api.user.UserProfileResponse
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 interface IApiService {
@@ -19,6 +17,10 @@ interface IApiService {
         @Field("password") password: String?
     ): Call<BaseResponse<UserProfileResponse?>>
 
+    @GET("v1/food/list")
+    fun getAllFoodAPI(
+        @Query("vendorId") foodId: String?
+    ): Call<BaseResponse<FoodResponse?>>
 
 
 

@@ -1,71 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/ic_bg">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivMenu"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
-        android:src="@drawable/ic_menu"
+        android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_20sdp"/>
-<androidx.appcompat.widget.AppCompatTextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="MOB's Menu"
-    android:textSize="@dimen/_15sdp"
-    android:textColor="@color/color_black"
-    android:textStyle="bold"
-    android:layout_marginTop="@dimen/_20sdp"
-    android:layout_marginLeft="@dimen/_80sdp"
-    android:layout_toRightOf="@id/ivMenu"/>
+        android:src="@drawable/ic_menu" />
 
-<androidx.appcompat.widget.LinearLayoutCompat
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_50sdp"
-    android:orientation="vertical">
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/sf_pro_display_regular"
-        android:text="Hello Manoj ,"
-        android:paddingLeft="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_toRightOf="@id/ivMenu"
+        android:text="MOB's Menu"
         android:textColor="@color/color_black"
-        android:textSize="@dimen/_15sdp" />
-    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
+        android:id="@+id/linearAddFood"
         android:layout_height="wrap_content"
-      android:fontFamily="@font/sf_pro_display_bold"
-        android:textStyle="bold"
-        android:text="WELCOME BACK"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:paddingLeft="@dimen/_20sdp"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/_18sdp" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:paddingLeft="@dimen/_20sdp"
+            android:text="Hello Manoj ,"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:paddingLeft="@dimen/_20sdp"
+            android:text="WELCOME BACK"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:src="@drawable/ic_add_food" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv1"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:src="@drawable/ic_add_food"/>
-</androidx.appcompat.widget.LinearLayoutCompat>
-
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/rv1"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    android:layout_marginTop="@dimen/_200sdp"/>
-
-
-
-
-
-
+        android:layout_height="match_parent"
+        tools:listitem="@layout/adapter_kitchen"
+        android:layout_below="@+id/linearAddFood"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
 </RelativeLayout>

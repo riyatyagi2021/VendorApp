@@ -6,6 +6,7 @@ import com.app.vendor.R
 import com.app.vendor.base.App
 import com.app.vendor.model.base.BaseResponse
 import com.app.vendor.model.base.Errors
+import com.app.vendor.model.food.FoodResponse
 import com.app.vendor.ui.auth.LoginActivity
 import com.app.vendor.utils.PreferenceKeeper
 import com.mobcoder.kitchen.model.api.user.UserProfileResponse
@@ -80,6 +81,12 @@ class APICallManager<T>(
         APIClient.getClient()
             .loginAPI(email, password)
             .enqueue(this@APICallManager as retrofit2.Callback<BaseResponse<UserProfileResponse?>>)
+    }
+
+
+    fun getAllFoodAPI(vendorId : String?) {
+        APIClient.getClient().getAllFoodAPI(vendorId)
+            .enqueue(this@APICallManager as Callback<BaseResponse<FoodResponse?>>)
     }
 
 

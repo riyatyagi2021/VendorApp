@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Vendor</string>
+    <string name="msg_network_connection">Internet connection is not available right now!</string>
 </resources>
