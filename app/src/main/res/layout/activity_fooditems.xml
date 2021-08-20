@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivFooditem"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:src="@drawable/ic_plus_"/>
+<androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/foodname"
+    android:layout_width="wrap_content"
+    android:textColor="@color/color_black"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:textSize="@dimen/_15sdp"
+    android:layout_marginTop="@dimen/_30sdp"
+    android:layout_toRightOf="@+id/ivFooditem"
+    android:text="Masala Chai"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:textColor="@color/color_black"
+        android:layout_toRightOf="@+id/ivFooditem"
+        android:layout_marginTop="@dimen/_49sdp"
+        android:text="Rs 10"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivFoodList"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginLeft="@dimen/_120sdp"
+        android:src="@drawable/ic_menu_card"
+        android:layout_toRightOf="@+id/foodname"/>
+    </RelativeLayout>
+
+</RelativeLayout>

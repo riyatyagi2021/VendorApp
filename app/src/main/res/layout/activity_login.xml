@@ -98,9 +98,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_10sdp"
-
                 android:clickable="true"
                 android:focusable="true"
+                android:tag="0"
                 android:padding="@dimen/_6sdp"
                 android:src="@drawable/ic_password_hide"
                 android:tint="@color/color_black" />

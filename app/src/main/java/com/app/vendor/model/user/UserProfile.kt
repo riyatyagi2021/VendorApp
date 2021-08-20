@@ -4,6 +4,7 @@ import java.io.Serializable
 
 
 class UserProfile : Serializable {
+
     var accessToken: String? = null
     var employeeId: String? = null
     var firstName: String? = null
@@ -15,5 +16,8 @@ class UserProfile : Serializable {
     var couponWalletBalance: Float = 0.0f
     var walletBalance: Float = 0.0f
     var phone: String? = null
+
+
+
 
 }

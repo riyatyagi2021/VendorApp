@@ -13,6 +13,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.app.vendor.R
+import com.app.vendor.ui.home.kitchen.KitchenDashboardActivity
 import com.app.vendor.utils.AppUtil
 import com.mobcoder.kitchen.base.BottomSheetType
 
@@ -30,16 +31,13 @@ abstract class BaseActivity : AppCompatActivity(), IBottomSheetClickListener {
         setContentView(layoutRes())
     }
 
-
-    // For launching
-
-    open fun launchActivity(classType: Class<out BaseActivity>) {
+    open fun launchActivity(classType: Class<out KitchenDashboardActivity>) {
         startActivity(Intent(this, classType))
     }
 
 
     open fun launchActivity(
-        classType: Class<out BaseActivity>,   ///3
+        classType: Class<out BaseActivity>,
         bundle: Bundle,
         view: View
     ) {
@@ -52,7 +50,7 @@ abstract class BaseActivity : AppCompatActivity(), IBottomSheetClickListener {
     }
 
     open fun launchActivity(
-        classType: Class<out BaseActivity>,      ///2
+        classType: Class<out BaseActivity>,
         bundle: Bundle
     ) {
         val intent = Intent(this, classType)
@@ -63,16 +61,12 @@ abstract class BaseActivity : AppCompatActivity(), IBottomSheetClickListener {
     }
 
     open fun launchActivity(
-        classType: Class<out BaseActivity>,      ///2
+        classType: Class<out BaseActivity>,
         view: View
     ) {
         AppUtil.preventTwoClick(view)
         startActivity(Intent(this, classType))
     }
-
-
-
-    //   For Result
 
 
     open fun launchActivityForResult(
@@ -129,8 +123,6 @@ abstract class BaseActivity : AppCompatActivity(), IBottomSheetClickListener {
         }
     }
 
-
-
     /**
      * Hide progress bar
      */
@@ -143,14 +135,24 @@ abstract class BaseActivity : AppCompatActivity(), IBottomSheetClickListener {
         }
     }
 
-     fun onBottomSheetItemClicked(
+    open override fun onBottomSheetItemClicked(
         position: Int,
         type: BottomSheetType?,
-        data: MediaStore.Audio.Media?
+        data: MediaStore.Images.Media?
     ) {
 
     }
 
+    open fun hideSoftKeyBoard() {
+        val imm =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        if (currentFocus != null) {
+            imm.hideSoftInputFromWindow(
+                currentFocus?.windowToken,
+                InputMethodManager.RESULT_UNCHANGED_SHOWN
+            )
+        }
+    }
 
-
+    open fun onStoragePickUp(data: MutableList<MediaStore.Images.Media>?) {}
 }

@@ -7,6 +7,7 @@ import com.app.vendor.BuildConfig
 import com.app.vendor.R
 import com.app.vendor.base.BaseActivity
 import com.app.vendor.ui.auth.LoginActivity
+import com.app.vendor.ui.home.kitchen.KitchenDashboardActivity
 import com.app.vendor.utils.AppConstant
 import com.app.vendor.utils.PreferenceKeeper
 import com.mobcoder.kitchen.base.BottomSheetType
@@ -27,7 +28,7 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-       if (BuildConfig.FLAVOR.contains("prod")) {
+        if (BuildConfig.FLAVOR.contains("prod")) {
             tvVersion?.text = "prod: ${BuildConfig.VERSION_NAME}"
         } else {
             tvVersion?.text = "dev: ${BuildConfig.VERSION_NAME}"
@@ -51,15 +52,17 @@ class SplashActivity : BaseActivity() {
 
         }
     }
+
     private fun gotoScreen() {
-       // val isLogin = PreferenceKeeper.getInstance().isLogin
-       /* if (isLogin) {
+        val isLogin = PreferenceKeeper.getInstance().isLogin
+        if (isLogin) {
             startActivity(Intent(this, KitchenDashboardActivity::class.java))
-        } else {*/
+        } else {
             startActivity(Intent(this, LoginActivity::class.java))
 
-        finish()
+            finish()
+        }
+
+
     }
-
-
 }

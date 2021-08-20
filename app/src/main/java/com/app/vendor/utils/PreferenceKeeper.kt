@@ -6,6 +6,7 @@ import android.text.TextUtils
 import com.app.vendor.BuildConfig
 import com.app.vendor.base.App
 import com.google.gson.Gson
+import com.mobcoder.kitchen.model.api.user.UserProfile
 
 
 class PreferenceKeeper() {
@@ -54,6 +55,12 @@ class PreferenceKeeper() {
             prefs.edit().putBoolean("IS_LOGIN", isLogin).apply()
         }
 
+    fun getUser(): UserProfile? {
+        return Gson().fromJson(prefs.getString("user", ""), UserProfile::class.java)
+    }
 
+    fun setUser(user: UserProfile?) {
+        prefs.edit().putString("user", Gson().toJson(user)).apply()
+    }
 
 }
