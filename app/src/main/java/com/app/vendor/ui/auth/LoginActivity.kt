@@ -55,6 +55,8 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun setListener() {
+
+        showPassword()
         btnLogin.setOnClickListener {
             loginAPI()
             showProgressBar()
@@ -88,11 +90,28 @@ class LoginActivity : BaseActivity() {
                 AppUtil.showToast("Password should be more than 6 characters")
                 return false
             }
-             else{
-                AppUtil.showToast("Login Successful")
-            }
+
             return true
         }
+
+
+
+    private fun showPassword() {
+        ivPasswordHide?.setOnClickListener {
+            val t = it.tag.toString().toInt()
+            if (t == 0) {
+                ivPasswordHide.setImageResource(R.drawable.ic_password_show)
+                etPassword.transformationMethod = null
+                ivPasswordHide.tag = "1"
+            } else {
+                ivPasswordHide.setImageResource(R.drawable.ic_password_hide)
+                etPassword.transformationMethod = PasswordTransformationMethod()
+                ivPasswordHide.tag = "0"
+            }
+        }
+    }
+
+
     }
 
 

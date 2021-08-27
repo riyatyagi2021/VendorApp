@@ -95,14 +95,13 @@
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentRight="true"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:clickable="true"
                 android:focusable="true"
-                android:tag="0"
                 android:padding="@dimen/_6sdp"
                 android:src="@drawable/ic_password_hide"
+                android:tag="0"
                 android:tint="@color/color_black" />
         </RelativeLayout>
 

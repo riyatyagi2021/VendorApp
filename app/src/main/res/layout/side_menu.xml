@@ -2,16 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/red">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Manoj Kumar"
         android:textStyle="bold"
         android:textSize="@dimen/_15sdp"
     android:paddingTop="@dimen/_15sdp"
@@ -19,22 +18,24 @@
         android:textColor="@color/color_white"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Manoj@yopmail.com"
         android:textSize="@dimen/_15sdp"
         android:paddingTop="@dimen/_15sdp"
         android:paddingLeft="@dimen/_20sdp"
         android:textColor="@color/color_white"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="+919911982102"
         android:textSize="@dimen/_15sdp"
         android:paddingTop="@dimen/_8sdp"
         android:paddingLeft="@dimen/_20sdp"
         android:textColor="@color/color_white"/>
+
+
     <View
         android:layout_width="350dp"
         android:layout_height="2dp"
@@ -56,15 +57,17 @@
     android:paddingLeft="@dimen/_25sdp"
     android:layout_height="wrap_content"
     android:src="@drawable/ic_wallet_1"/>
-<androidx.appcompat.widget.AppCompatTextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_toRightOf="@id/walletImage"
-    android:textColor="@color/color_white"
-    android:textSize="@dimen/_15sdp"
-    android:layout_marginLeft="@dimen/_25sdp"
-    android:text="Wallet"/>
+
         <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_toRightOf="@id/walletImage"
+            android:text="Wallet"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/_15sdp" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMenuWallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs 50.0"
@@ -174,31 +177,40 @@
         android:layout_marginLeft="120dp"/>
 
 </LinearLayout>
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/linearLogout"
         android:layout_width="match_parent"
-android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/_33sdp"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_round_white"
+        android:foreground="?selectableItemBackground"
+        android:gravity="center">
 
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:gravity="center"
+            android:src="@drawable/ic_logout"
+            android:tint="@color/color_black" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/logoutButton"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:gravity="center"
             android:text="Logout"
-                android:gravity="center"
-            android:layout_centerVertical="true"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:paddingRight="@dimen/_100sdp"
-           android:textSize="@dimen/_14sdp"
-            android:paddingLeft="@dimen/_90sdp"
-            android:drawableLeft="@drawable/ic_logout"
-            android:background="@drawable/rectangle_cornered"/>
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_13sdp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 

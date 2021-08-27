@@ -106,6 +106,10 @@ android {
 
         // run time permission
         implementation 'com.karumi:dexter:6.2.2'
+
+        implementation 'org.jsoup:jsoup:1.11.2'
+
+
     }
 
 

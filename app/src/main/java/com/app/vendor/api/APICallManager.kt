@@ -5,11 +5,16 @@ import android.telecom.Call
 import com.app.vendor.R
 import com.app.vendor.base.App
 import com.app.vendor.model.base.BaseResponse
+import com.app.vendor.model.base.CommonApiResponse
 import com.app.vendor.model.base.Errors
 import com.app.vendor.model.food.FoodResponse
+import com.app.vendor.model.food.ImageResponse
+import com.app.vendor.model.food.VendorResponse
+import com.app.vendor.model.user.MyProfileResponse
 import com.app.vendor.ui.auth.LoginActivity
 import com.app.vendor.utils.PreferenceKeeper
 import com.mobcoder.kitchen.model.api.user.UserProfileResponse
+import okhttp3.MultipartBody
 import retrofit2.Callback
 import retrofit2.Response
 import java.net.SocketException
@@ -18,7 +23,7 @@ import java.net.UnknownHostException
 
 
 class APICallManager<T>(
-    private val mCallType: APIType,
+    private val mCallType:APIType,
     private val mAPICallHandler: APICallHandler<T>
 ) : Callback<BaseResponse<T>> {
 
@@ -89,5 +94,29 @@ class APICallManager<T>(
             .enqueue(this@APICallManager as Callback<BaseResponse<FoodResponse?>>)
     }
 
+
+    fun addFoodImageUploadAPI(
+        multipartList: List<MultipartBody.Part>
+    ) {
+        APIClient.getClient()
+            .addPhotos(multipartList)
+            .enqueue(this@APICallManager as Callback<BaseResponse<ImageResponse?>>)
+    }
+
+
+    fun getMyProfile(
+    ) {
+        APIClient.getClient()
+            .getMyProfile()
+            .enqueue(this@APICallManager as Callback<BaseResponse<MyProfileResponse?>>)
+    }
+
+
+
+    fun getAllVendorAPI() {
+        APIClient.getClient()
+            .getAllVendorAPI()
+            .enqueue(this@APICallManager as Callback<BaseResponse<VendorResponse?>>)
+    }
 
 }

@@ -29,13 +29,14 @@
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
         android:id="@+id/linearAddFood"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_50sdp"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/sf_pro_display_regular"
@@ -73,11 +74,9 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-
-
-
-
 </RelativeLayout>
+
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         style="@style/Widget.Custom.NavigationView"

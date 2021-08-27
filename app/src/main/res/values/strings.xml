@@ -3,4 +3,12 @@
     <string name="msg_network_connection">Internet connection is not available right now!</string>
     <string name="open">OPEN</string>
     <string name="close">CLOSE</string>
+
+    <string name="yes">Successful</string>
+    <string name="no">Not Successful</string>
+    <string name="storage_permission_rationale_title">Storege Permission required</string>
+    <string name="storage_permission_rationale_message">In order to take this picture, grant permmission</string>
+    <string name="storage_permission_denied_message">Storage permission required in order to use camera</string>
+
+    <string name="permissionStorageReqMsg">This is required for storage and camera permission</string>
 </resources>

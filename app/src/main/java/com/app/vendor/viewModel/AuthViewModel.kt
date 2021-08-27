@@ -1,13 +1,26 @@
 package com.mobcoder.kitchen.viewModel
 
+import android.provider.MediaStore
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.vendor.api.APICallHandler
 import com.app.vendor.api.APICallManager
 import com.app.vendor.api.APIType
+import com.app.vendor.model.Media
+import com.app.vendor.model.base.CommonApiResponse
 import com.app.vendor.model.base.Errors
 import com.app.vendor.model.food.FoodResponse
+import com.app.vendor.model.food.ImageResponse
+import com.app.vendor.model.food.VendorResponse
+import com.app.vendor.model.user.MyProfileResponse
+import com.app.vendor.utils.AppConstant
+import com.app.vendor.utils.AppUtil
 import com.mobcoder.kitchen.model.api.user.UserProfileResponse
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
+import java.lang.Exception
 import java.util.*
 
 
@@ -19,6 +32,15 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
 
     var foodUserSuccess =
         MutableLiveData<FoodResponse>()
+
+    var imageUploadResponse =
+        MutableLiveData<ImageResponse>()
+
+    var myProfileSuccess =
+        MutableLiveData<MyProfileResponse>()
+
+    var vendorListSuccess =
+        MutableLiveData<VendorResponse>()
 
     var error =
         MutableLiveData<Errors>()
@@ -37,6 +59,45 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
         apiCallManager.getAllFoodAPI(vendorId)
     }
 
+    fun addFoodImageUploadAPI(
+        selectedMediaFiles: List<Media?>?
+    ) {
+        val multipartList: MutableList<MultipartBody.Part> =
+            ArrayList()
+        for (i in selectedMediaFiles!!.indices) {
+
+                 val file = File(selectedMediaFiles[i]?.image)
+
+            val requestFileSocialImage = RequestBody.create(
+                AppUtil.getMimeType(selectedMediaFiles[i]?.image).toMediaTypeOrNull(), file)
+
+            val socialImageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+                AppConstant.MT.UPLOAD_MEDIA,
+                file.name,
+                requestFileSocialImage
+            )
+
+            multipartList.add(socialImageMultipart)
+        }
+        val apiCallManager =
+            APICallManager(APIType.ADD_PHOTO, this)
+        apiCallManager.addFoodImageUploadAPI(multipartList)
+    }
+
+
+    fun getMyProfile() {
+        val apiCallManager = APICallManager(APIType.USER_PROFILE, this)
+        apiCallManager.getMyProfile()
+    }
+
+
+    fun getAllVendorAPI() {
+        val apiCallManager = APICallManager(APIType.VENDOR_LIST, this)
+        apiCallManager.getAllVendorAPI()
+    }
+
+
+
 
     override fun onSuccess(apiType: APIType, response: Any?) {
 
@@ -51,6 +112,21 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
                 foodUserSuccess.setValue(foodResponse)
             }
 
+            APIType.ADD_PHOTO -> {
+                val imageResponse = response as ImageResponse
+                imageUploadResponse.setValue(imageResponse)
+            }
+
+            APIType.USER_PROFILE -> {
+                val foodResponse = response as MyProfileResponse
+                myProfileSuccess.setValue(foodResponse)
+            }
+
+
+            APIType.VENDOR_LIST -> {
+                val foodResponse = response as VendorResponse
+                vendorListSuccess.setValue(foodResponse)
+            }
 
             else -> {
             }

@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.app.vendor.R
 import com.app.vendor.base.BaseActivity
 import com.app.vendor.model.food.Food
@@ -17,8 +18,9 @@ import com.mobcoder.kitchen.base.BottomSheetType
 import com.mobcoder.kitchen.callback.RootCallback
 import com.mobcoder.kitchen.viewModel.AuthViewModel
 import kotlinx.android.synthetic.main.activity_dashboard.*
+import kotlinx.android.synthetic.main.side_menu.*
 
-class KitchenDashboardActivity:BaseActivity(), RootCallback<Any> {
+class KitchenDashboardActivity:BaseActivity(), RootCallback<Any> ,SwipeRefreshLayout.OnRefreshListener{
 
     private var foodAdapter: FoodAdapter? = null
     private val viewModel: AuthViewModel by viewModels()
@@ -83,6 +85,20 @@ class KitchenDashboardActivity:BaseActivity(), RootCallback<Any> {
             //  swpKt.isRefreshing = false
             foods = data.foodItemList
 
+
+            viewModel.myProfileSuccess.observe(this) { data ->
+                tvName?.text = "Hello ${data.profileData?.firstName}"
+
+                tvMenu?.text =
+                    AppUtil.getFullName(data.profileData?.firstName, data.profileData?.lastName)
+                tvGmail?.text = data.profileData?.email
+                val c = data.profileData?.couponWalletBalance
+                val w = data.profileData?.walletBalance
+              //  tvMenuCW?.text = c?.let { AppUtil.getRupee(c) }
+                tvMenuWallet?.text = w?.let { AppUtil.getRupee(w) }
+                tvPhone?.text = data.profileData?.phone
+            }
+
             /*  if (foods == null || foods?.size == 0) {
                 tvNoDataKt.visible()
                 tvNoDataKt.text = "No food available for users"
@@ -96,13 +112,48 @@ class KitchenDashboardActivity:BaseActivity(), RootCallback<Any> {
             foodAdapter?.setData(foods)
         }
 
-             viewModel.error.observe(this) { errors ->
-           // swpKt.isRefreshing = false
+
+
+
+                    //Vendor List                                     //Have to make vendor adapter- not done
+
+        viewModel.vendorListSuccess.observe(this) { data ->
+           // pbVendor?.gone()
+           // swpK.isRefreshing = false
+            val vendors = data.vendorList
+            /*if (vendors == null || vendors?.size == 0) {
+                tvNoData.visible()
+                tvNoData.text = "No vendor available yet!"
+            } else {
+                tvNoData.gone()
+            }*/
+           //vendorAdapter?.setData(vendors)
+        }
+
+
+        viewModel.error.observe(this) { errors ->
+            // swpKt.isRefreshing = false
             hideProgressBar()
             AppUtil.showToast(errors.errorMessage)
         }
+
+
         }
 
+    override fun onRefresh() {
+        if (AppUtil.isConnection()) {
+           // viewModel.getAllVendorAPI()
+            viewModel.getMyProfile()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (AppUtil.isConnection()) {
+           // viewModel.getAllVendorAPI()
+            viewModel.getMyProfile()
+        }
+    }
 
     }
 

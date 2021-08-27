@@ -13,6 +13,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.app.vendor.R
+import com.app.vendor.model.Media
 import com.app.vendor.ui.home.kitchen.KitchenDashboardActivity
 import com.app.vendor.utils.AppUtil
 import com.mobcoder.kitchen.base.BottomSheetType
@@ -154,5 +155,5 @@ abstract class BaseActivity : AppCompatActivity(), IBottomSheetClickListener {
         }
     }
 
-    open fun onStoragePickUp(data: MutableList<MediaStore.Images.Media>?) {}
+    open fun onStoragePickUp(data: MutableList<Media>?) {}
 }
