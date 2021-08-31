@@ -1,4 +1,4 @@
-package com.mobcoder.kitchen.model.api.user
+package com.app.vendor.model.api.user
 
 import java.io.Serializable
 

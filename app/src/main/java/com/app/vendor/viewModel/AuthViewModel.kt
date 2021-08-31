@@ -1,26 +1,26 @@
-package com.mobcoder.kitchen.viewModel
+package com.app.vendor.viewModel
 
-import android.provider.MediaStore
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.vendor.api.APICallHandler
 import com.app.vendor.api.APICallManager
 import com.app.vendor.api.APIType
+import com.app.vendor.callback.CallbackType
 import com.app.vendor.model.Media
+import com.app.vendor.model.api.user.UserProfileResponse
 import com.app.vendor.model.base.CommonApiResponse
 import com.app.vendor.model.base.Errors
 import com.app.vendor.model.food.FoodResponse
 import com.app.vendor.model.food.ImageResponse
 import com.app.vendor.model.food.VendorResponse
+import com.app.vendor.model.user.FoodCreateRequest
 import com.app.vendor.model.user.MyProfileResponse
 import com.app.vendor.utils.AppConstant
 import com.app.vendor.utils.AppUtil
-import com.mobcoder.kitchen.model.api.user.UserProfileResponse
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
-import java.lang.Exception
 import java.util.*
 
 
@@ -38,6 +38,9 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
 
     var myProfileSuccess =
         MutableLiveData<MyProfileResponse>()
+
+    var addFoodSuccess =
+        MutableLiveData<CommonApiResponse>()
 
     var vendorListSuccess =
         MutableLiveData<VendorResponse>()
@@ -90,6 +93,11 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
         apiCallManager.getMyProfile()
     }
 
+    fun addFoodAPI(data: FoodCreateRequest?) {
+        val apiCallManager = APICallManager(APIType.ADD_FOOD, this)
+        apiCallManager.addFoodAPI(data)
+    }
+
 
     fun getAllVendorAPI() {
         val apiCallManager = APICallManager(APIType.VENDOR_LIST, this)
@@ -122,6 +130,11 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
                 myProfileSuccess.setValue(foodResponse)
             }
 
+
+            APIType.ADD_FOOD, APIType.UPDATE_FOOD -> {
+                val foodResponse = response as CommonApiResponse
+                addFoodSuccess.setValue(foodResponse)
+            }
 
             APIType.VENDOR_LIST -> {
                 val foodResponse = response as VendorResponse

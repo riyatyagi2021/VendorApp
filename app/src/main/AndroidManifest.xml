@@ -35,7 +35,7 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.home.kitchen.FoodActivity"></activity>
+        <activity android:name=".ui.home.kitchen.AddFoodActivity"></activity>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:screenOrientation="nosensor">
@@ -52,6 +52,14 @@
             android:name=".ui.home.kitchen.KitchenDashboardActivity"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"></activity>
+        <activity
+            android:name=".ui.home.kitchen.EditFoodActivity"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.home.kitchen.DeleteFoodActivity"
+            android:screenOrientation="nosensor" />
+
     </application>
 
 </manifest>

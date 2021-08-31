@@ -6,4 +6,6 @@ public enum APIType {
     ADD_PHOTO,
     VENDOR_LIST,
     USER_PROFILE,
+    ADD_FOOD,
+    UPDATE_FOOD,
 }

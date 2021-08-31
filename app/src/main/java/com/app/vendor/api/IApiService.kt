@@ -1,12 +1,13 @@
 package com.app.vendor.api
 
+import com.app.vendor.model.api.user.UserProfileResponse
 import com.app.vendor.model.base.BaseResponse
 import com.app.vendor.model.base.CommonApiResponse
 import com.app.vendor.model.food.FoodResponse
 import com.app.vendor.model.food.ImageResponse
 import com.app.vendor.model.food.VendorResponse
+import com.app.vendor.model.user.FoodCreateRequest
 import com.app.vendor.model.user.MyProfileResponse
-import com.mobcoder.kitchen.model.api.user.UserProfileResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -36,6 +37,10 @@ interface IApiService {
 
     @GET("v1/employee/getMyProfile")
     fun getMyProfile(): Call<BaseResponse<MyProfileResponse?>>
+
+
+    @POST("v1/food/add")
+    fun addFoodAPI(@Body paymentProduct: FoodCreateRequest?): Call<BaseResponse<CommonApiResponse?>>
 
 
     @GET("v1/food/vendors")

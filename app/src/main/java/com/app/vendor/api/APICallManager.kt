@@ -1,19 +1,18 @@
 package com.app.vendor.api
 
 import android.content.Intent
-import android.telecom.Call
-import com.app.vendor.R
 import com.app.vendor.base.App
+import com.app.vendor.model.api.user.UserProfileResponse
 import com.app.vendor.model.base.BaseResponse
 import com.app.vendor.model.base.CommonApiResponse
 import com.app.vendor.model.base.Errors
 import com.app.vendor.model.food.FoodResponse
 import com.app.vendor.model.food.ImageResponse
 import com.app.vendor.model.food.VendorResponse
+import com.app.vendor.model.user.FoodCreateRequest
 import com.app.vendor.model.user.MyProfileResponse
 import com.app.vendor.ui.auth.LoginActivity
 import com.app.vendor.utils.PreferenceKeeper
-import com.mobcoder.kitchen.model.api.user.UserProfileResponse
 import okhttp3.MultipartBody
 import retrofit2.Callback
 import retrofit2.Response
@@ -109,6 +108,15 @@ class APICallManager<T>(
         APIClient.getClient()
             .getMyProfile()
             .enqueue(this@APICallManager as Callback<BaseResponse<MyProfileResponse?>>)
+    }
+
+
+    fun addFoodAPI(
+        data: FoodCreateRequest?
+    ) {
+        APIClient.getClient()
+            .addFoodAPI(data)
+            .enqueue(this@APICallManager as Callback<BaseResponse<CommonApiResponse?>>)
     }
 
 

@@ -1,20 +1,16 @@
 package com.app.vendor.ui.auth
 
 import android.os.Bundle
-import android.provider.MediaStore
 import android.text.TextUtils
 import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.widget.AppCompatEditText
 import com.app.vendor.R
 import com.app.vendor.base.BaseActivity
 import com.app.vendor.ui.home.kitchen.KitchenDashboardActivity
 import com.app.vendor.utils.AppUtil
 import com.app.vendor.utils.PreferenceKeeper
-import com.mobcoder.kitchen.base.BottomSheetType
-import com.mobcoder.kitchen.viewModel.AuthViewModel
+import com.app.vendor.viewModel.AuthViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -44,7 +40,7 @@ class LoginActivity : BaseActivity() {
             val useData = data?.employeeProfile
             PreferenceKeeper.getInstance().accessToken = useData?.accessToken
             PreferenceKeeper.getInstance().setUser(useData)
-            launchActivity(KitchenDashboardActivity::class.java)
+           launchActivity(KitchenDashboardActivity::class.java)
 
         }
 

@@ -5,8 +5,8 @@ import android.content.SharedPreferences
 import android.text.TextUtils
 import com.app.vendor.BuildConfig
 import com.app.vendor.base.App
+import com.app.vendor.model.api.user.UserProfile
 import com.google.gson.Gson
-import com.mobcoder.kitchen.model.api.user.UserProfile
 
 
 class PreferenceKeeper() {

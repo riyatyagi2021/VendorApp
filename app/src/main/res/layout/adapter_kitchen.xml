@@ -47,16 +47,16 @@ android:paddingBottom="@dimen/_10sdp"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivFoodMenu"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_120sdp"
-            android:layout_marginTop="@dimen/_40sdp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivFoodMenu"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/_120sdp"
 
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:src="@drawable/ic_menu_card" />
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_menu_card" />
         </RelativeLayout>
 
 </com.google.android.material.card.MaterialCardView>

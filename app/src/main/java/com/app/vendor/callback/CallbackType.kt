@@ -1,4 +1,4 @@
-package com.mobcoder.kitchen.callback
+package com.app.vendor.callback
 
 enum class CallbackType {
    CART_ADD,
@@ -10,5 +10,6 @@ enum class CallbackType {
    ORDER_COMPLETE,
    ORDER_VENDOR,
    UPDATE_FOOD,
-   ORDER_DETAIL
+   ORDER_DETAIL,
+   DASHBOARD_ADAPTER_MENU
 }

@@ -10,6 +10,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/arrow"
+        android:paddingTop="@dimen/_10sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_20sdp"
@@ -206,12 +207,12 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/photo3"
                     android:layout_width="@dimen/_65sdp"
-                    android:visibility="invisible"
                     android:layout_height="@dimen/_65sdp"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_toRightOf="@id/photo2"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible" />
 
 
             </RelativeLayout>
@@ -223,14 +224,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/rectangle_cornered_black"
                 android:fontFamily="@font/sf_pro_display_semi_bold"
                 android:padding="@dimen/_10sdp"
                 android:text="Add Food"
                 android:textAllCaps="false"
                 android:textColor="@color/color_white"
-
                 android:textSize="@dimen/_12sdp" />
 
         </LinearLayout>

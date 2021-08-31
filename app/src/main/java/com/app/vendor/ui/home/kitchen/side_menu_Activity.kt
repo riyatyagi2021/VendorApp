@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import com.app.vendor.R
 import com.app.vendor.base.BaseActivity
 import com.app.vendor.utils.AppUtil
-import com.mobcoder.kitchen.viewModel.AuthViewModel
+import com.app.vendor.viewModel.AuthViewModel
 
 class side_menu_Activity: BaseActivity() {
 

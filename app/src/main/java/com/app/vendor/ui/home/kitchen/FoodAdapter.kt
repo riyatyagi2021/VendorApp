@@ -5,10 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.vendor.R
+import com.app.vendor.callback.CallbackType
+import com.app.vendor.callback.RootCallback
 import com.app.vendor.model.food.Food
 import com.app.vendor.utils.AppUtil
 import com.app.vendor.utils.GlideUtils
-import com.mobcoder.kitchen.callback.RootCallback
 import kotlinx.android.synthetic.main.adapter_kitchen.view.*
 
 class FoodAdapter() :
@@ -58,10 +59,18 @@ class FoodAdapter() :
                 binding.tvFoodName.text = data.name
             }
 
+            binding.ivFoodMenu.setOnClickListener {
+                AppUtil.preventTwoClick(it)
+                if (data != null) {
+                    rootCallback?.onRootCallback(
+                        position, data,
+                        CallbackType.DASHBOARD_ADAPTER_MENU, it
+                    )
+                }
 
+            }
         }
+
     }
-
-
 }
 

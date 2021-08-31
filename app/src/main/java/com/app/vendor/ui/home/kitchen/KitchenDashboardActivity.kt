@@ -1,26 +1,36 @@
 package com.app.vendor.ui.home.kitchen
 
-import android.app.Activity
-import android.content.ActivityNotFoundException
+
+import android.app.Dialog
 import android.content.Intent
-import android.net.Uri
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.provider.MediaStore
+import android.view.View
+import android.widget.PopupMenu
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.DialogFragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.app.vendor.R
 import com.app.vendor.base.BaseActivity
+import com.app.vendor.callback.CallbackType
 import com.app.vendor.model.food.Food
 import com.app.vendor.utils.AppUtil
-import com.mobcoder.kitchen.base.BottomSheetType
-import com.mobcoder.kitchen.callback.RootCallback
-import com.mobcoder.kitchen.viewModel.AuthViewModel
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.side_menu.*
+import com.app.vendor.callback.RootCallback
+import com.app.vendor.viewModel.AuthViewModel
+import kotlinx.android.synthetic.main.bottomsheet_addfood.*
 
-class KitchenDashboardActivity:BaseActivity(), RootCallback<Any> ,SwipeRefreshLayout.OnRefreshListener{
+
+class KitchenDashboardActivity:BaseActivity(), RootCallback<Any>,SwipeRefreshLayout.OnRefreshListener, BottomSheetFragmentAddFood.editDelete{
+
+ var dialog:Dialog?=null
+
+    val bottomSheetFragmentAddFood = BottomSheetFragmentAddFood(this)
+
 
     private var foodAdapter: FoodAdapter? = null
     private val viewModel: AuthViewModel by viewModels()
@@ -47,13 +57,46 @@ class KitchenDashboardActivity:BaseActivity(), RootCallback<Any> ,SwipeRefreshLa
         }
 
         btnAdd.setOnClickListener{
-            val intent=Intent(this,FoodActivity::class.java)
+            val intent=Intent(this,AddFoodActivity::class.java)
             startActivity(intent)
           //  launchActivity(AddFoodItems::class.java)
         }
 
     }
 
+
+    override fun onRootCallback(index: Int, data: Any, type: CallbackType, view: View) {
+        when (type) {
+            CallbackType.DASHBOARD_ADAPTER_MENU -> {
+                bottomSheetFragmentAddFood.show(supportFragmentManager, "bottomsheetdialog")
+
+            }
+
+        }
+    }
+
+    override fun click(v: Int) {
+        if (v == 1) {
+            editFood()
+        } else {
+           deleteFood()
+        }    }
+
+    private fun deleteFood() {
+       // val intent=Intent(this,DeleteFoodActivity::class.java)
+       // startActivity(intent)
+
+        dialog= Dialog(this)
+        //   dialog!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog!!.setContentView(R.layout.dialog_remove_food)
+        dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog!!.show()
+    }
+
+    private fun editFood() {
+        val intent=Intent(this,EditFoodActivity::class.java)
+        startActivity(intent)
+    }
 
     private fun setListener() {
         ivMenu.setOnClickListener {
