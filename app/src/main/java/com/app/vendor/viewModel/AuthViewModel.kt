@@ -42,6 +42,12 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
     var addFoodSuccess =
         MutableLiveData<CommonApiResponse>()
 
+    var foodDeleteSuccess=
+        MutableLiveData<CommonApiResponse>()
+
+    var updateFoodSuccess =
+        MutableLiveData<CommonApiResponse>()
+
     var vendorListSuccess =
         MutableLiveData<VendorResponse>()
 
@@ -99,6 +105,16 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
     }
 
 
+    fun deleteFoodAPI(foodId:String?){
+        val apiCallManager=APICallManager(APIType.DELETE_FOOD,this)
+        apiCallManager.deleteFoodAPI(foodId)
+    }
+
+    fun updateFoodAPI(data: FoodCreateRequest?) {
+        val apiCallManager = APICallManager(APIType.UPDATE_FOOD, this)
+        apiCallManager.updateFoodAPI(data)
+    }
+
     fun getAllVendorAPI() {
         val apiCallManager = APICallManager(APIType.VENDOR_LIST, this)
         apiCallManager.getAllVendorAPI()
@@ -135,6 +151,12 @@ class AuthViewModel : ViewModel(), APICallHandler<Any> {
                 val foodResponse = response as CommonApiResponse
                 addFoodSuccess.setValue(foodResponse)
             }
+
+            APIType.DELETE_FOOD ->{
+                val foodResponse=response as CommonApiResponse
+                foodDeleteSuccess.setValue(foodResponse)
+            }
+
 
             APIType.VENDOR_LIST -> {
                 val foodResponse = response as VendorResponse

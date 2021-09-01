@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/ic_bg"
-    android:id="@+id/parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ic_bg">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/_15sdp"
+        android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/arrow"
-        android:paddingTop="@dimen/_10sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:src="@drawable/ic_back"
-        android:tint="@color/color_black" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/color_black" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_80sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_toRightOf="@id/arrow"
-        android:fontFamily="@font/sf_pro_display_regular"
-        android:text="Add food item"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/_15sdp"
-        android:textStyle="bold" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:text="Add food item"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,7 +44,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_60sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:orientation="vertical">
 
@@ -68,12 +73,13 @@
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/etFoodName"
+                    android:id="@+id/editFoodNameAdd"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:background="@drawable/rectangle_cornered"
                     android:hint="Type item Name"
+                    android:inputType="text|textPersonName"
                     android:paddingLeft="@dimen/_20sdp" />
 
             </RelativeLayout>
@@ -104,12 +110,13 @@
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/etFoodPrice"
+                    android:id="@+id/editFoodPriceAdd"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:background="@drawable/rectangle_cornered"
                     android:hint="Type Price"
+                    android:inputType="number"
                     android:paddingLeft="@dimen/_20sdp" />
 
             </RelativeLayout>
@@ -140,12 +147,13 @@
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/etFoodAQ"
+                    android:id="@+id/editFoodAQAdd"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:background="@drawable/rectangle_cornered"
                     android:hint="Type Available Quantity"
+                    android:inputType="number"
                     android:paddingLeft="@dimen/_20sdp" />
 
             </RelativeLayout>
@@ -235,23 +243,11 @@
                 android:textSize="@dimen/_12sdp" />
 
         </LinearLayout>
+
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>
 
 
 
-
-<!--<androidx.recyclerview.widget.RecyclerView
-android:id="@+id/rvPhoto"
-android:layout_width="match_parent"
-android:layout_height="@dimen/_65sdp"
-android:layout_marginStart="@dimen/_10sdp"
-android:layout_marginTop="@dimen/_30sdp"
-android:layout_toRightOf="@id/addImage"
-android:orientation="horizontal"
-android:scaleType="centerCrop"
-android:visibility="visible"
-app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-tools:listitem="@layout/adapter_photo" />-->
 

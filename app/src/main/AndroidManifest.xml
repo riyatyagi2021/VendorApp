@@ -56,9 +56,7 @@
             android:name=".ui.home.kitchen.EditFoodActivity"
             android:screenOrientation="nosensor" />
 
-        <activity
-            android:name=".ui.home.kitchen.DeleteFoodActivity"
-            android:screenOrientation="nosensor" />
+
 
     </application>
 

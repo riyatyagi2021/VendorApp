@@ -38,13 +38,16 @@ interface IApiService {
     @GET("v1/employee/getMyProfile")
     fun getMyProfile(): Call<BaseResponse<MyProfileResponse?>>
 
-
     @POST("v1/food/add")
     fun addFoodAPI(@Body paymentProduct: FoodCreateRequest?): Call<BaseResponse<CommonApiResponse?>>
 
+    @DELETE("v1/food/delete")
+    fun deleteFoodAPI(@Query ("foodId") foodId: String?):Call<BaseResponse<CommonApiResponse?>>
+
+    @PUT("v1/food/update")
+    fun updateFoodAPI(@Body paymentProduct: FoodCreateRequest?): Call<BaseResponse<CommonApiResponse?>>
 
     @GET("v1/food/vendors")
     fun getAllVendorAPI(): Call<BaseResponse<VendorResponse?>>
-
 
 }

@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.add_food_item.*
 import kotlinx.android.synthetic.main.bottomsheet_imageupload_fragment.*
 
 
-class BottomSheetFragment(var callback:cameraGallery): BottomSheetDialogFragment() {
+class BottomSheetFragmentCameraGallery(var callback:cameraGallery): BottomSheetDialogFragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

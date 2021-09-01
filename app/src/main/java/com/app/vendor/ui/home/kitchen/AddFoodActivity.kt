@@ -19,7 +19,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.provider.MediaStore
 import androidx.activity.viewModels
-
 import com.app.vendor.base.App
 import com.app.vendor.model.Media
 import com.app.vendor.utils.AppConstant
@@ -32,10 +31,7 @@ import android.view.View
 import com.app.vendor.model.user.FoodCreateRequest
 import com.app.vendor.viewModel.AuthViewModel
 import kotlinx.android.synthetic.main.add_food_item.addImage
-import kotlinx.android.synthetic.main.add_food_item.arrow
 import kotlinx.android.synthetic.main.add_food_item.btnAddFood
-import kotlinx.android.synthetic.main.add_food_item.etFoodName
-import kotlinx.android.synthetic.main.add_food_item.etFoodPrice
 import kotlinx.android.synthetic.main.add_food_item.photo1
 import kotlinx.android.synthetic.main.add_food_item.photo2
 import kotlinx.android.synthetic.main.add_food_item.photo3
@@ -43,9 +39,9 @@ import kotlinx.android.synthetic.main.edit_food_item.*
 import java.io.ByteArrayOutputStream
 
 
-class AddFoodActivity :BaseActivity(), BottomSheetFragment.cameraGallery {
+class AddFoodActivity :BaseActivity(), BottomSheetFragmentCameraGallery.cameraGallery {
 
-    val bottomSheetFragment = BottomSheetFragment(this@AddFoodActivity)
+    val bottomSheetFragment = BottomSheetFragmentCameraGallery(this@AddFoodActivity)
     private var selectedMediaFiles: MutableList<Media>? = ArrayList()
     private val viewModel: AuthViewModel by viewModels()
     var count = 3
@@ -57,11 +53,9 @@ class AddFoodActivity :BaseActivity(), BottomSheetFragment.cameraGallery {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-        arrow.setOnClickListener{
+        ivBackAdd.setOnClickListener{
             AppUtil.preventTwoClick(it)
-            AppUtil.showToast("Riya")
+            AppUtil.showToast("Check check")
             finish()
         }
 
@@ -75,7 +69,7 @@ class AddFoodActivity :BaseActivity(), BottomSheetFragment.cameraGallery {
         btnAddFood.setOnClickListener{
            if(AppUtil.isConnection()) {
                viewModel.addFoodImageUploadAPI(selectedMediaFiles)
-            //  viewModel.addFoodAPI(FoodCreateRequest())
+
         }
         }
     }
@@ -257,9 +251,9 @@ class AddFoodActivity :BaseActivity(), BottomSheetFragment.cameraGallery {
 
             foodReq.isAvailable=1
             foodReq.status=1
-            foodReq.name=etFoodName.text.toString()
-            foodReq.price=etFoodPrice.text.toString().toFloat()
-            foodReq.availableQuantity=etFoodAQ.text.toString().toInt()
+            foodReq.name=editFoodNameAdd.text.toString()
+            foodReq.price=editFoodPriceAdd.text.toString().toFloat()
+            foodReq.availableQuantity=editFoodAQAdd.text.toString().toInt()
            foodReq.images=data.images
             viewModel.addFoodAPI(foodReq)
         }

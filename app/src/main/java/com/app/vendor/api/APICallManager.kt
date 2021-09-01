@@ -120,6 +120,17 @@ class APICallManager<T>(
     }
 
 
+    fun deleteFoodAPI(foodId:String?){
+        APIClient.getClient()
+            .deleteFoodAPI(foodId)
+            .enqueue( this@APICallManager as Callback<BaseResponse<CommonApiResponse?>>)
+    }
+
+    fun updateFoodAPI(  data: FoodCreateRequest?){
+        APIClient.getClient()
+            .updateFoodAPI(data)
+            .enqueue(this@APICallManager as Callback<BaseResponse<CommonApiResponse?>>)
+    }
 
     fun getAllVendorAPI() {
         APIClient.getClient()

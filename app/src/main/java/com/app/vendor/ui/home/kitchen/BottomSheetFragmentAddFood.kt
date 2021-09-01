@@ -1,26 +1,19 @@
 package com.app.vendor.ui.home.kitchen
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.app.vendor.R
 import com.app.vendor.callback.CallbackType
 import com.app.vendor.callback.RootCallback
+import com.app.vendor.model.food.Food
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.add_food_item.*
 import kotlinx.android.synthetic.main.bottomsheet_addfood.*
 import kotlinx.android.synthetic.main.bottomsheet_addfood.view.*
-import kotlinx.android.synthetic.main.bottomsheet_imageupload_fragment.*
 
 
-class BottomSheetFragmentAddFood(var call:editDelete): BottomSheetDialogFragment() {
-
-
+class BottomSheetFragmentAddFood(var foodData: Food, var callback:RootCallback<Any>): BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,26 +36,18 @@ class BottomSheetFragmentAddFood(var call:editDelete): BottomSheetDialogFragment
         super.onViewCreated(view, savedInstanceState)
 
        tvEditFood.setOnClickListener {
-           call.click(1)
+           callback.onRootCallback(1, foodData, CallbackType.UPDATE_FOOD,it)
+//           call.click(foodId,1)
+           dismiss()
         }
       tvDeleteFood.setOnClickListener {
-          call.click(2)
+          callback.onRootCallback(2, foodData, CallbackType.DELETE_FOOD,it)
+//          call.click(foodId,2)
+          dismiss()
         }
         view.ivCrossDelete.setOnClickListener { dismiss() }
-
     }
-    private var rootCallback: RootCallback<Any>? = null
-    private var data: Any? = null
-
-
-
-
-    interface editDelete{
-        fun click(v:Int)
-    }
-
-
+   /* private var rootCallback: RootCallback<Any>? = null
+    private var data: Any? = null*/
 }
 
-
-//view.ivCrossDelete.setOnClickListener { dismiss() }

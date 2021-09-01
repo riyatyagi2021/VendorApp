@@ -18,6 +18,7 @@ android {
     def appName = 'mob_kitchen_vendor'
 
 
+
     defaultConfig {
         applicationId "com.app.vendor"
         minSdkVersion 16

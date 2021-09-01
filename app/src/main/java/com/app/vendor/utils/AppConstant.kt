@@ -13,6 +13,13 @@ object AppConstant {
         }
     }
 
+    interface BK {
+        companion object {
+            const val FOOD_ID = "food_id"
+            const val FOOD_DATA = "food_data"
+        }
+    }
+
 
     interface MT {
         companion object {

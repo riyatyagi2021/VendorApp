@@ -16,8 +16,7 @@ class FoodAdapter() :
     RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view =
-            LayoutInflater.from(parent.context).inflate(R.layout.adapter_kitchen, parent, false)
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_kitchen, parent, false)
         return ViewHolder(view)
     }
 

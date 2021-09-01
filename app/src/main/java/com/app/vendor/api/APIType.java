@@ -8,4 +8,5 @@ public enum APIType {
     USER_PROFILE,
     ADD_FOOD,
     UPDATE_FOOD,
+    DELETE_FOOD,
 }
