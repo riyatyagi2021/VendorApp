@@ -41,7 +41,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
-                android:text="Delivered On"
+                android:text="Request Pending"
                 android:textSize="@dimen/_15sdp"
                 android:paddingLeft="@dimen/_10sdp"
                 android:textColor="@color/color_white"
@@ -156,8 +156,33 @@
                     android:textSize="@dimen/_25sdp"
                     android:text="--"/>
             </LinearLayout>
-
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textAllCaps="false"
+            android:textColor="@color/color_white"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_50sdp"
+            android:paddingRight="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/color_black"
+            android:background="@drawable/rectangle_cornered_maroon"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel Order"
+            android:textColor="@color/color_white"
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_50sdp"
+            android:paddingRight="@dimen/_50sdp"
+            android:layout_gravity="center"
+
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/rectangle_cornered_maroon"/>
 
     </LinearLayout>
 </ScrollView>

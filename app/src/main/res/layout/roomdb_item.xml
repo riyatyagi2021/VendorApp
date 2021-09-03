@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fn"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     android:gravity="center"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:paddingRight="@dimen/_5sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:text="FirstName"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/ln"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_5sdp"
+        android:text="LastName"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/color_white"
+        android:text="Update"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/color_white"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Delete"/>
+
+
+</LinearLayout>

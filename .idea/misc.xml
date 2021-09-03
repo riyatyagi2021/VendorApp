@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable-xxhdpi/bg_round_white_8.xml" value="0.3421875" />
         <entry key="app/src/main/res/drawable-xxhdpi/rectangle_cornered_white.xml" value="0.32708333333333334" />
         <entry key="app/src/main/res/drawable/bg_round_white.xml" value="0.371875" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.3046875" />
@@ -23,7 +24,16 @@
         <entry key="app/src/main/res/layout/dialog_remove_food.xml" value="0.33" />
         <entry key="app/src/main/res/layout/dialog_removefood.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/edit_food_item.xml" value="0.34010416666666665" />
+        <entry key="app/src/main/res/layout/include_header.xml" value="0.32708333333333334" />
+        <entry key="app/src/main/res/layout/include_header_mywallet.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/include_header_userrequest.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/main_roomdb.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/order_details.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/roomdb_adapter.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/roomdb_first.xml" value="0.32708333333333334" />
+        <entry key="app/src/main/res/layout/roomdb_item.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/side_menu.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/user_request.xml" value="0.3260416666666667" />
       </map>
     </option>
   </component>

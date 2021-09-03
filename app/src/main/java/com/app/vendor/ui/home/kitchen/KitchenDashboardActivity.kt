@@ -102,8 +102,7 @@ class KitchenDashboardActivity : BaseActivity(), RootCallback<Any>,
         var dialog: Dialog? = null
         dialog = Dialog(this)
 
-        val foodReq = FoodCreateRequest()
-        foodReq.foodId = foodId
+
 
         dialog.setContentView(R.layout.dialog_remove_food)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

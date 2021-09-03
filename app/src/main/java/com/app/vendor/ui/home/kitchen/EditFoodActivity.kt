@@ -45,7 +45,7 @@ class EditFoodActivity : BaseActivity() {
             if (foodName.isNotEmpty() && foodPrice.isNotEmpty() && foodQty.isNotEmpty()) {
                 updateFoodAPI(foodName, foodPrice, foodQty)
             } else {
-
+            AppUtil.showToast("Fill every details")
             }
         }
     }
