@@ -31,9 +31,9 @@ class RecyclerViewAdapter(val listener: ClickListener): RecyclerView.Adapter<Rec
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.itemView.setOnClickListener {
+        /*holder.itemView.setOnClickListener {
             listener.onItemClickListener(items[position])
-        }
+        }*/
 
         holder.bind(items[position])
 
@@ -48,19 +48,17 @@ class RecyclerViewAdapter(val listener: ClickListener): RecyclerView.Adapter<Rec
 
 
         fun bind(data: User) {
-
             tvFName.text = data.firstName
             tvLName.text = data.lastName
+
              deleteUserID.setOnClickListener {
                   listener.onDeleteUserClickListener(data)
              }
-
-
         }
     }
 
     interface ClickListener{
         fun onDeleteUserClickListener(user: User)
-        fun onItemClickListener(user: User)
+       // fun onItemClickListener(user: User)
     }
 }

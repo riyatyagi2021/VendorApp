@@ -35,12 +35,12 @@ class MainActivityy : BaseActivity(), RecyclerViewAdapter.ClickListener {
     }
 
     private fun setListener() {
-        btnInsert.setOnClickListener({
+        btnInsert.setOnClickListener{
             val First = etFN.text.toString()
             val Second = etLN.text.toString()
             val user = User(First, Second)
             viewModel.insertUserInfo(user)
-        })
+        }
     }
 
     private fun setAdapter() {
@@ -55,8 +55,6 @@ class MainActivityy : BaseActivity(), RecyclerViewAdapter.ClickListener {
 
     }
 
-    override fun onItemClickListener(user: User) {
 
-    }
 
 }

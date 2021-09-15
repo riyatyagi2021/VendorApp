@@ -75,16 +75,12 @@ class KitchenDashboardActivity : BaseActivity(), RootCallback<Any>,
                 val foodData = data as Food
                 if (index == 1) {
                     editFood(foodData)
-                } else {
-
                 }
             }
             CallbackType.DELETE_FOOD -> {
                 val foodData = data as Food
                 if (index == 2 ){
                     deleteFood( foodData)
-                } else {
-
                 }
             }
         }

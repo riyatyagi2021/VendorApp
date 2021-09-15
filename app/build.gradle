@@ -64,6 +64,9 @@ android {
         kotlinOptions {
             jvmTarget = '1.8'
         }
+    buildFeatures {
+        viewBinding true
+    }
 
 }
     dependencies {
@@ -80,6 +83,7 @@ android {
         implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
         implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
         implementation 'com.google.android.play:core-ktx:1.8.1'
+        implementation 'com.google.android.gms:play-services-maps:17.0.0'
         //noinspection LifecycleAnnotationProcessorWithJava8
         kapt 'androidx.lifecycle:lifecycle-compiler:2.3.1'
         implementation "androidx.activity:activity-ktx:1.2.3"
@@ -121,6 +125,11 @@ android {
         implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
         kapt  "androidx.room:room-compiler:2.3.0"
 
+
+        //google maps
+        implementation 'com.google.android.gms:play-services-maps:17.0.0'
+        implementation 'com.google.android.gms:play-services-location:17.0.0'
+          implementation 'io.nlopez.smartlocation:library:3.3.3'
 
     }
 

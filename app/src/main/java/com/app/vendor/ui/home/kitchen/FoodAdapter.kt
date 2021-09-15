@@ -31,7 +31,6 @@ class FoodAdapter() :
     }
 
     private var rootCallback: RootCallback<Any>? = null
-
     fun setRootCallback(rootCallback: RootCallback<Any>) {
         this.rootCallback = rootCallback
     }
@@ -40,6 +39,7 @@ class FoodAdapter() :
     fun setData(products: MutableList<Food>?) {
         this.products = products
         notifyDataSetChanged()
+
     }
 
     inner class ViewHolder(var binding: View) :

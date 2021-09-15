@@ -2,23 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.vendor">
 
-<!--
-    <uses-permission android:name="com.android.vending.BILLING" /> &lt;!&ndash; Storage Permission &ndash;&gt;
--->
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <!-- <uses-permission android:name="com.android.vending.BILLING" /> &lt;!&ndash; Storage Permission &ndash;&gt; -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Network Permission -->
-
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.hardware.camera.autofocus" />
+
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
@@ -35,7 +37,39 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-    <!--    <activity android:name=".ui.home.kitchen.AddFoodActivity"></activity>
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+
+
+        //This for google maps
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".googlemaps.GoogleMaps"
+            android:exported="true"
+            android:label="@string/title_activity_google_maps" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        //This is main project
+
+        <!--
+            <activity android:name=".ui.home.kitchen.AddFoodActivity"></activity>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:screenOrientation="nosensor">
@@ -55,10 +89,15 @@
         <activity
             android:name=".ui.home.kitchen.EditFoodActivity"
             android:screenOrientation="nosensor" />
--->
+        -->
 
 
-        <activity
+
+
+
+       ////// This is for room database classes
+
+   <!--     <activity
             android:name=".roomdatabse.MainActivityy"
             android:screenOrientation="nosensor">
             <intent-filter>
@@ -66,8 +105,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
+        </activity>-->
 
     </application>
 

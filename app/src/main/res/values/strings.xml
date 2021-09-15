@@ -11,4 +11,9 @@
     <string name="storage_permission_denied_message">Storage permission required in order to use camera</string>
 
     <string name="permissionStorageReqMsg">This is required for storage and camera permission</string>
+    <string name="title_activity_google_maps">GoogleMaps</string>
+    <string-array name="location">
+
+    </string-array>
+
 </resources>

@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/rectangle_cornered_maroon.xml" value="0.3046875" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/activity_food.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_google_maps.xml" value="0.34270833333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1897644927536232" />
         <entry key="app/src/main/res/layout/adapter_kitchen.xml" value="0.2563405797101449" />
         <entry key="app/src/main/res/layout/adapter_photo.xml" value="0.35572916666666665" />
@@ -29,6 +30,7 @@
         <entry key="app/src/main/res/layout/include_header_userrequest.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/main_roomdb.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/order_details.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/progress_layout.xml" value="0.32708333333333334" />
         <entry key="app/src/main/res/layout/roomdb_adapter.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/roomdb_first.xml" value="0.32708333333333334" />
         <entry key="app/src/main/res/layout/roomdb_item.xml" value="0.2942708333333333" />
